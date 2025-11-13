@@ -1,0 +1,85 @@
+@startuml
+title Diagrama de Objetos - Universidad
+
+object BaseDeDatos {
+  nombre = "Uneatlantico"
+}
+
+object Schema {
+  nombre = "Academico"
+}
+
+object Usuario {
+  nombre = "AdminUniversidad"
+}
+
+object Rol {
+  permisos = "lectura, escritura y modificación"
+}
+
+object Tabla {
+  nombre = "Alumnos"
+}
+
+object Vista {
+  nombre = "Vista_AlumnosActivos"
+}
+
+object Campos {
+  tipo = "Conjunto de campos de alumno"
+}
+
+object columnaID as "columnaID : Columna" {
+  nombre = "ID_Alumno"
+  tipo = "INT"
+}
+
+object columnaNombre as "columnaNombre : Columna" {
+  nombre = "Nombre"
+  tipo = "VARCHAR"
+}
+
+object fila1 as "fila1 : Fila" {
+  valores = "2192321, Ana Torres,ana.torres@alumno.uneatlantico.es"
+}
+
+object fila2 as "fila2 : Fila" {
+  valores = "2923131, Luis Gómez,luis.gomez@alumnos.uneatlantico.es"
+}
+
+object PrimaryKey {
+  nombre = "PK_Alumno"
+}
+
+object Constrain {
+  tipo = "UNIQUE"
+  descripcion = "Unicidad en correo"
+}
+
+' Relaciones (según diagrama original: contiene / organiza / muestra / consulta / restricciones)
+BaseDeDatos --> Schema : contiene
+Schema --> Tabla : organiza
+Schema --> Vista : organiza
+
+Tabla --> PrimaryKey : contiene
+PrimaryKey --> columnaID : incluye
+Tabla --> columnaID : contiene
+Tabla --> columnaNombre : contiene
+Tabla --> fila1 : contiene
+Tabla --> fila2 : contiene
+
+Tabla --> Campos : contiene
+Campos --> columnaID : contiene
+Campos --> columnaNombre : contiene
+
+Vista --> Tabla : muestra
+
+Rol --> Constrain : contiene
+Constrain --> Campos : restricciones
+
+Usuario --> Rol : tiene
+
+' (opcional) relación de rol consultando vista (interpretación del diagrama)
+Rol --> Vista : consulta
+
+@enduml
