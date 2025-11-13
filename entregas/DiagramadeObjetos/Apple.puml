@@ -1,20 +1,20 @@
 @startuml
-title Diagrama de Objetos - Universidad
+title Diagrama de Objetos - Apple
 
 object BaseDeDatos {
-  nombre = "Uneatlantico"
+  nombre = "Apple"
 }
 
 object Schema {
-  nombre = "Academico"
+  nombre = "Recursos Humanos"
 }
 
 object Usuario {
-  nombre = "AdminUniversidad"
+  nombre = "EmpleadoRH"
 }
 
 object Rol {
-  permisos = "lectura, escritura y modificación"
+  permisos = "lectura y consulta"
 }
 
 object Tabla {
@@ -22,15 +22,15 @@ object Tabla {
 }
 
 object Vista {
-  nombre = "Vista_AlumnosActivos"
+  nombre = "Vista_EmpleadosActivos"
 }
 
 object Campos {
-  tipo = "Conjunto de campos de alumno"
+  tipo = "Conjunto de campos de Empleados"
 }
 
 object columnaID as "columnaID : Columna" {
-  nombre = "ID_Alumno"
+  nombre = "ID_EMPLEADO"
   tipo = "INT"
 }
 
@@ -45,15 +45,15 @@ object columnaCorreo as "columnaCorreo : Columna" {
 }
 
 object fila1 as "fila1 : Fila" {
-  valores = "2192321, Ana Torres,ana.torres@alumno.uneatlantico.es"
+  valores = "2192321, Ana Torres,ana.torres@icloud.com"
 }
 
 object fila2 as "fila2 : Fila" {
-  valores = "2923131, Luis Gómez,luis.gomez@alumnos.uneatlantico.es"
+  valores = "2923131, Luis Gómez,luis.gomez@icoud.com"
 }
 
 object PrimaryKey {
-  nombre = "PK_Alumno"
+  nombre = "PK_IDEMPLEADO"
 }
 
 object Constrain {
